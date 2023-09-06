@@ -22,7 +22,7 @@ searchButton.addEventListener('click', () => {
 
     // Construct the API URL
     //const apiUrl = `https://api.met.no/weatherapi/locationforecast/2.0/compact?query=${encodeURIComponent(location)}`;
-    const apiUrl = `api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=82f7fc8dcaf25424134c685a20978535${encodeURIComponent(location)}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=82f7fc8dcaf25424134c685a20978535${encodeURIComponent(location)}`;
 
 
     // Fetch weather data from OpenWeatherMap API
