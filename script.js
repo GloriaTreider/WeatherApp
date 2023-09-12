@@ -9,7 +9,7 @@ const weatherIcon = document.querySelector('.weather-icon img');
 // Event listener for the search button
 searchButton.addEventListener('click', () => {
     const location = locationInput.value;
-    console.log(location.trim());
+   
     if (location.trim() === '') {
         alert('Please enter a location.');
         return;
@@ -24,7 +24,7 @@ searchButton.addEventListener('click', () => {
     // Construct the API URL
     //const apiUrl = `https://api.met.no/weatherapi/locationforecast/2.0/compact?query=${encodeURIComponent(location)}`;
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&APPID=82f7fc8dcaf25424134c685a20978535&units=metric`;
-    console.log(apiUrl);
+    
 
     // Fetch weather data from OpenWeatherMap API
     fetch(apiUrl)

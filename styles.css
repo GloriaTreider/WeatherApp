@@ -1,15 +1,21 @@
 /* Reset some default styles for consistency */
-body,
-h1,
-h2,
-p {
+html, body {
+    height: 100%;
+    
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+    
 }
 
+
+:root {
+    --primary: #3498db;
+
+}
 /* Header styles */
 header {
-    background-color: #3498db;
+    background-color: var(--primary);
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -17,25 +23,55 @@ header {
 
 /* Main container styles */
 main {
-    padding: 20px;
+    padding: 0px 20px; 
+    height: 100%;
 }
 
 /* Search container styles */
 .search-container {
-    margin-bottom: 20px;
+    height: 30%;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+input.form-control {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.input-group-append {
+    text-align: center;
 }
 
 button {
-    background-color: #3498db;
+    background-color: var(--primary);
+    border-radius: 5px;
+    padding: 5px 30px;
     color: #fff;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 /* Weather info container styles */
+.weather-info-container {
+    height: 30%;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+    
+}
 .weather-info {
+   flex-grow: 1;
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
 }
 
 .weather-data {
@@ -59,6 +95,8 @@ button {
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #3498db;
+    background-color: var(--primary);
     color: #fff;
+    height: 50px;
+   
 }
