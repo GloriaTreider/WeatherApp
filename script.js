@@ -4,7 +4,7 @@ const searchButton = document.getElementById('search-button');
 const locationSpan = document.getElementById('location');
 const temperatureSpan = document.getElementById('temperature');
 const conditionSpan = document.getElementById('condition');
-const weatherIcon = document.querySelector('.weather-icon img');
+let weatherIcon = document.querySelector('.weather-icon img');
 
 // Event listener for the search button
 searchButton.addEventListener('click', () => {
@@ -38,13 +38,15 @@ searchButton.addEventListener('click', () => {
             // Extract weather information from the API response
             const temperature = data.main.temp;
             const condition = data.weather[0].description;
-
+            weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
             // Update the HTML with the weather information
             console.log(locationSpan.textContent = location)
             console.log(temperatureSpan.textContent = `${temperature}°C`)
             console.log(conditionSpan.textContent = condition)
 
             // You may also update the weather icon here if OpenWeatherMap provides image URLs
+            // if (condition === 'ra')
+           
 
         })
         .catch(error => {
