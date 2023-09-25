@@ -46,6 +46,8 @@ input.form-control {
     text-align: center;
 }
 
+
+
 button {
     background-color: var(--primary);
     border-radius: 5px;
@@ -59,13 +61,14 @@ button {
 .weather-info-container {
     height: 30%;
     display: flex;
-    flex-direction: center;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     
 }
 .weather-info {
-   flex-grow: 1;
+    height: 100%;
+    width: 40%;
     background-color: #D3D3D3;
     padding: 20px;
     border-radius: 5px;
@@ -73,9 +76,13 @@ button {
     
 }
 
+.mb-3 {
+    text-align: center;
+}
 .weather-data {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .weather-icon {
@@ -98,4 +105,24 @@ footer {
     color: #fff;
     height: 50px;
    
+}
+
+.weatherConvertButtons {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+
+@media screen and (max-width: 600px) {
+    .weather-info-container {
+        flex-direction: column;
+        height: 50%;
+    }
+    .weather-info {
+        margin: 10px 0;
+        width: 100%;
+    }
 }

@@ -1,15 +1,20 @@
 // Define variables for elements in the HTML
-const locationInput = document.getElementById('location-input');
+let locationInput = document.getElementById('location-input');
 const searchButton = document.getElementById('weatherForm');
 const locationSpan = document.getElementById('location');
 const temperatureSpan = document.getElementById('temperature');
 const conditionSpan = document.getElementById('condition');
 let weatherIcon = document.querySelector('.weather-icon img');
+const inFahrenheit = document.querySelector('.fahrenheit');
+const inCelsius = document.querySelector('.celsius');
+let temperature;
+let tempInCelsius;
+let tempInFahrenheit;
 
 // Event listener for the search button
 searchButton.addEventListener('submit', (e) => {
     e.preventDefault();
-    const location = locationInput.value;
+    let location = locationInput.value;
    
     if (location.trim() === '') {
         alert('Please enter a location.');
@@ -37,8 +42,9 @@ searchButton.addEventListener('submit', (e) => {
         })
         .then(data => {
             // Extract weather information from the API response
-            const temperature = data.main.temp;
+            temperature = data.main.temp;
             const condition = data.weather[0].description;
+            tempInCelsius = true;
             weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
             // Update the HTML with the weather information
             console.log(locationSpan.textContent = location)
@@ -53,4 +59,28 @@ searchButton.addEventListener('submit', (e) => {
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
+        locationInput.value = ''
+
+        inFahrenheit.addEventListener('click', convertToFahrenhiet);
+        inCelsius.addEventListener('click', convertToCelsius);
 });
+
+function convertToFahrenhiet () {
+    if (tempInCelsius) {
+        temperature = (temperature * 9/5) + 32;
+        console.log(temperature);
+        temperatureSpan.innerHTML = temperature.toFixed(2) + "°F";
+        tempInFahrenheit = true;
+        tempInCelsius = false;
+    }
+}
+
+function convertToCelsius () {
+    if (tempInFahrenheit) {
+        temperature = (temperature - 32) * 5/9;
+        console.log(temperature);
+        temperatureSpan.innerHTML = temperature.toFixed(2) + "°C";
+        tempInFahrenheit = false;
+        tempInCelsius = true;
+    }
+}
