@@ -117,12 +117,26 @@ footer {
 
 
 @media screen and (max-width: 600px) {
+    body, main, html {
+  
+        
+    }
+    .bg-primary {
+        width: 100%;
+    }
     .weather-info-container {
+    
         flex-direction: column;
         height: 50%;
+        padding: 0;
     }
     .weather-info {
         margin: 10px 0;
         width: 100%;
+        padding: 0;
     }
+    main.container {
+        width: 100%;
+    }
+    
 }

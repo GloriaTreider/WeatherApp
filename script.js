@@ -52,15 +52,12 @@ searchButton.addEventListener('submit', (e) => {
             console.log(conditionSpan.textContent = condition)
 
             // You may also update the weather icon here if OpenWeatherMap provides image URLs
-            // if (condition === 'ra')
            
-
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
         locationInput.value = ''
-
         inFahrenheit.addEventListener('click', convertToFahrenhiet);
         inCelsius.addEventListener('click', convertToCelsius);
 });
