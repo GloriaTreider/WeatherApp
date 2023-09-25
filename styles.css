@@ -117,10 +117,7 @@ footer {
 
 
 @media screen and (max-width: 600px) {
-    body, main, html {
-  
-        
-    }
+   
     .bg-primary {
         width: 100%;
     }
