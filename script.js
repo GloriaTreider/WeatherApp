@@ -1,13 +1,14 @@
 // Define variables for elements in the HTML
 const locationInput = document.getElementById('location-input');
-const searchButton = document.getElementById('search-button');
+const searchButton = document.getElementById('weatherForm');
 const locationSpan = document.getElementById('location');
 const temperatureSpan = document.getElementById('temperature');
 const conditionSpan = document.getElementById('condition');
 let weatherIcon = document.querySelector('.weather-icon img');
 
 // Event listener for the search button
-searchButton.addEventListener('click', () => {
+searchButton.addEventListener('submit', (e) => {
+    e.preventDefault();
     const location = locationInput.value;
    
     if (location.trim() === '') {
