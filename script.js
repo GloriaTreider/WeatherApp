@@ -10,29 +10,32 @@ let locationInput = document.getElementById('location-input');
 const temperatureSpan = document.getElementById('temperature');
 const inFahrenheit = document.querySelector('.fahrenheit');
 const inCelsius = document.querySelector('.celsius');
-   
+
+window.addEventListener('load', function() {
+   let cookie = getCookie('savedLocation');
+   if (cookie) {
+    fetchWeather(cookie)
+   }
+})
+
+
 // Event listener for the search button
 searchButton.addEventListener('submit', (e) => {
-   
     e.preventDefault();
     let location = locationInput.value;
-
     if (location.trim() === '') {
         alert('Please enter a location.');
         return;
-
     }
-    fetchWeather(location)
+    setCookie('savedLocation', location);
+    fetchWeather(location);
 });
 
 async function fetchWeather(location) {
-
-    
-    
    
     // Replace 'YOUR_API_KEY' with your actual yr.no API key
 
-    const apiKey = "82f7fc8dcaf25424134c685a20978535" //process.env.OPEN_WEATHER_API_KEY;
+    const apiKey = process.env.OPEN_WEATHER_API_KEY; 
 
     // Construct the API URL
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&APPID=${apiKey}&units=metric`;
@@ -48,11 +51,12 @@ async function fetchWeather(location) {
         tempInCelsius = true;
         tempInFahrenheit = false;
         weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        
         // Update the HTML with the weather information
         console.log(locationSpan.textContent = location)
         console.log(temperatureSpan.textContent = `${temperature}°C`)
         console.log(conditionSpan.textContent = condition)
-
+        
         // You may also update the weather icon here if OpenWeatherMap provides image URLs
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
@@ -60,7 +64,7 @@ async function fetchWeather(location) {
     locationInput.value = ''
     inFahrenheit.addEventListener('click', convertToFahrenhiet);
     inCelsius.addEventListener('click', convertToCelsius);
-
+    getCookie()
 }
 
 function convertToFahrenhiet() {
@@ -82,3 +86,13 @@ function convertToCelsius() {
         tempInCelsius = true;
     }
 }
+
+function setCookie(cname, value) {
+    return localStorage.setItem(cname, value)
+}
+
+function getCookie(cname) {
+    return localStorage.getItem(cname);
+}
+
+
