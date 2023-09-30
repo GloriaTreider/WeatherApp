@@ -1,0 +1,24 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "Simple Weather App",
+  "source": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel --open",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GloriaTreider/WeatherApp.git"
+  },
+  "author": "Gloria and Brandon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GloriaTreider/WeatherApp/issues"
+  },
+  "homepage": "https://github.com/GloriaTreider/WeatherApp#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
