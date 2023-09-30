@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link
@@ -14,9 +13,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Weather App</title>
-
 </head>
-
 <body>
     <header class="bg-primary text-white text-center py-3 container">
         <h1>Weather App</h1>
@@ -27,36 +24,33 @@
                 <div class="input-group mb-3">
                     <form id="weatherForm">
                         <input type="text" class="form-control" id="location-input" placeholder="Enter location">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary" id="search-button">Search</button>
-                    </div>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary" id="search-button">Search</button>
+                        </div>
                     </form>
-                    
                 </div>
             </section>
         </div>
-        
-        <div class="row weather-info-container">
 
-        
-        <section class=" bg-light p-3 rounded weather-info">
-            <h2 class="mb-3">Current Weather</h2>
-            <div class="weather-data d-flex ">
-                <div class="weather-icon">
-                    <img src="weather-icon.jpeg" alt="Weather Icon" class="img-fluid">
+        <div class="row weather-info-container">
+            <section class=" bg-light p-3 rounded weather-info">
+                <h2 class="mb-3">Current Weather</h2>
+                <div class="weather-data d-flex ">
+                    <div class="weather-icon">
+                        <img src="weather-icon.jpeg" alt="Weather Icon" class="img-fluid">
+                    </div>
+                    <div class="weather-details ml-3">
+                        <p><strong>Location:</strong> <span id="location">City, Country</span></p>
+                        <p><strong>Temperature:</strong> <span id="temperature">--</span></p>
+                        <p><strong>Condition:</strong> <span id="condition">Cloudy</span></p>
+                    </div>
                 </div>
-                <div class="weather-details ml-3">
-                    <p><strong>Location:</strong> <span id="location">City, Country</span></p>
-                    <p><strong>Temperature:</strong> <span id="temperature">--</span></p>
-                    <p><strong>Condition:</strong> <span id="condition">Cloudy</span></p>
-                </div>
-            </div>
-        </section>
-        <section class=" bg-light p-3 rounded weatherConvertButtons weather-info">
-                <button class="tempConvert fahrenheit"  type="click">In F</button>
+            </section>
+            <section class=" bg-light p-3 rounded weatherConvertButtons weather-info">
+                <button class="tempConvert fahrenheit" type="click">In F</button>
                 <button class="tempConvert celsius" type="click">In C</button>
-        </section>
-    </div>
+            </section>
+        </div>
 
     </main>
     <footer class="text-center py-2 bg-primary text-white">
@@ -73,5 +67,4 @@
     <!-- Your custom JavaScript -->
     <script src="script.js" type="module"></script>
 </body>
-
 </html>
