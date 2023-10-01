@@ -23,7 +23,7 @@
     "parcel-bundler": "^1.12.5",
     "parsel": "^0.3.0"
   },
-  "main": "script.js",
+  
   "keywords": [],
   "dependencies": {
     "bootstrap": "^5.2.3"
