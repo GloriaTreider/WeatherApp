@@ -31,27 +31,32 @@
                 </div>
             </section>
         </div>
-
-        <div class="row weather-info-container">
-            <section class=" bg-light p-3 rounded weather-info">
-                <h2 class="mb-3">Current Weather</h2>
-                <div class="weather-data d-flex ">
-                    <div class="weather-icon">
-                        <img src="weather-icon.jpeg" alt="Weather Icon" class="img-fluid">
+        <div class="container weather-container">
+            <div class="row weather-info-container">
+                <section class=" bg-light p-3 rounded weather-info detail-container">
+                    <h2 class="mb-3">Current Weather</h2>
+                    <div class="weather-data d-flex ">
+                        <div class="weather-icon">
+                            <img src="weather-icon.jpeg" alt="Weather Icon" class="img-fluid">
+                        </div>
+                        <div class="weather-details ml-3">
+                            <p><strong>Location:</strong> <span id="location">City, Country</span></p>
+                            <p><strong>Temperature:</strong> <span id="temperature">--</span></p>
+                            <p><strong>Condition:</strong> <span id="condition">Cloudy</span></p>
+                        </div>
                     </div>
-                    <div class="weather-details ml-3">
-                        <p><strong>Location:</strong> <span id="location">City, Country</span></p>
-                        <p><strong>Temperature:</strong> <span id="temperature">--</span></p>
-                        <p><strong>Condition:</strong> <span id="condition">Cloudy</span></p>
+                </section>
+                
+                <section class="bg-light rounded weather-info temperatureButtonsContainer">
+                    <div class="weatherConvertButtons">
+                    
+                        <button class="tempConvert fahrenheit" type="click">In F</button>
+                        <button class="tempConvert celsius" type="click">In C</button>
+                    
                     </div>
-                </div>
-            </section>
-            <section class=" bg-light p-3 rounded weatherConvertButtons weather-info">
-                <button class="tempConvert fahrenheit" type="click">In F</button>
-                <button class="tempConvert celsius" type="click">In C</button>
-            </section>
+                </section>
+            </div>
         </div>
-
     </main>
     <footer class="text-center py-2 bg-primary text-white">
         <div class="social-icons">
