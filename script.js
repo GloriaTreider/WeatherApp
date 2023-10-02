@@ -28,12 +28,11 @@ window.addEventListener('load', function () {
 searchButton.addEventListener('submit', (e) => {
     e.preventDefault();
     let location = locationInput.value;
-    console.log()
     if (location.trim() === '') {
         alert('Please enter a location.');
         return;
     }
-    fetchLongLat(location)
+    fetchLongLat(location);
     setCookie('savedLocation', location.split(' ').join('%20'));
 
 });
@@ -43,7 +42,6 @@ async function fetchIPAddress() {
         const ipApiKey = process.env.IPSTACK_API_KEY;
         const ipApi = `http://api.ipstack.com/check?access_key=${ipApiKey}`
         //const ipApi = `https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid=${ipApiKey}&units=metric`
-        console.log(ipApi)
         const response = await fetch(ipApi);
         const data = await response.json();
         console.log(data.city + data.region_name)
@@ -77,8 +75,6 @@ async function fetchWeather(lat, lon, location) {
 
     // Construct the API URL
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
-    //`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&APPID=${apiKey}&units=metric`;
-
 
     try {
         // Fetch weather data from OpenWeatherMap API
@@ -104,7 +100,6 @@ async function fetchWeather(lat, lon, location) {
     locationInput.value = ''
     inFahrenheit.addEventListener('click', convertToFahrenhiet);
     inCelsius.addEventListener('click', convertToCelsius);
-    getCookie()
 }
 
 function convertToFahrenhiet() {
