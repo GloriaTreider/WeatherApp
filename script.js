@@ -13,13 +13,12 @@ const inCelsius = document.querySelector('.celsius');
 
 window.addEventListener('load', function () {
     let cookie = getCookie('savedLocation');
-    let ip = fetchIPAddress();
-    if (!cookie && !ip) {
-       return;
-    } else if (cookie) {
-        getCookie('savedLocation');
+     if (cookie) {
+        console.log(cookie);
+        fetchLongLat(cookie);
+       
     } else {
-        fetchIPAddress();
+         fetchIPAddress();
     }
 })
 
@@ -32,8 +31,8 @@ searchButton.addEventListener('submit', (e) => {
         alert('Please enter a location.');
         return;
     }
-    fetchLongLat(location);
     setCookie('savedLocation', location.split(' ').join('%20'));
+    fetchLongLat(location);
 
 });
 
@@ -43,7 +42,8 @@ async function fetchIPAddress() {
         const ipApi = `http://api.ipstack.com/check?access_key=${ipApiKey}`
         const response = await fetch(ipApi);
         const data = await response.json();
-        fetchLongLat(`${data.city} + ${data.region_name}`);
+        console.log(data);
+        fetchLongLat(`${data.city} ${data.region_name}`);
     } catch (error) {
         console.error(error)
     }
