@@ -13,8 +13,11 @@ const inCelsius = document.querySelector('.celsius');
 
 window.addEventListener('load', function () {
     let cookie = getCookie('savedLocation');
-    if (cookie) {
-        fetchLongLat(cookie)
+    let ip = fetchIPAddress();
+    if (!cookie && !ip) {
+       return;
+    } else if (cookie) {
+        getCookie('savedLocation');
     } else {
         fetchIPAddress();
     }
@@ -43,8 +46,8 @@ async function fetchIPAddress() {
         console.log(ipApi)
         const response = await fetch(ipApi);
         const data = await response.json();
-        console.log(data)
-        fetchWeather(data.latitude, data.longitude, data.city);
+        console.log(data.city + data.region_name)
+        fetchLongLat(`${data.city} + ${data.region_name}`);
     } catch (error) {
         console.error(error)
     }
