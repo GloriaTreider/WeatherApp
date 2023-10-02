@@ -41,10 +41,8 @@ async function fetchIPAddress() {
     try {
         const ipApiKey = process.env.IPSTACK_API_KEY;
         const ipApi = `http://api.ipstack.com/check?access_key=${ipApiKey}`
-        //const ipApi = `https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid=${ipApiKey}&units=metric`
         const response = await fetch(ipApi);
         const data = await response.json();
-        console.log(data.city + data.region_name)
         fetchLongLat(`${data.city} + ${data.region_name}`);
     } catch (error) {
         console.error(error)
