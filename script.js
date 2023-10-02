@@ -47,7 +47,6 @@ async function fetchIPAddress() {
     } catch (error) {
         console.error(error)
     }
-
 }
 
 async function fetchLongLat(location) {
@@ -61,9 +60,7 @@ async function fetchLongLat(location) {
     } catch (error) {
         console.error(error);
     }
-
 }
-
 
 async function fetchWeather(lat, lon, location) {
 
